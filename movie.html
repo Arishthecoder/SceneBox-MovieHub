@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SceneBox-Download movies here</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+    }
+    .video-container {
+      margin-top: 20px;
+    }
+    video {
+      width: 80%;
+      max-width: 800px;
+      border-radius: 8px;
+    }
+    .video-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .download-button {
+      background-color: #4e54c8;
+      color: white;
+      padding: 13px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 9px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 18px;
+    }
+    .download-button:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+    <!-- Video will be inserted here by JavaScript -->
+    <video id="videoPlayer" controls>
+      Your browser does not support the video tag.
+    </video>
+    <div id="videoTitle" class="video-title"></div>
+    <a id="downloadButton" class="download-button" href="" download>Download</a>
+  </div>
+
+  <script>
+    // Get the query parameter from the URL (e.g., ?video=soloLeveling)
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoName = urlParams.get('video');  // This gets the value after "video="
+
+    // Define videos and their details
+    const videos = {
+      soloLeveling: {
+        title: "Solo Leveling",
+        videoSrc: "C:/Users/DELL/Desktop/SceneBox/Solo_Leveling.mp4",
+        downloadLink: "C:/Users/DELL/Desktop/SceneBox/Solo_Leveling.mp4"
+      },
+      actionMovie: {
+        title: "Wednesday Season 2",
+        videoSrc: "C:\Users\DELL\Desktop\SceneBox\Wednesday Season 2_ 2025 Trailer _ Netflix.mp4",
+        downloadLink: "C:\Users\DELL\Desktop\SceneBox\Wednesday Season 2_ 2025 Trailer _ Netflix.mp4"
+      },
+      actionMovie: {
+        title: "Superman",
+        videoSrc: "C:\Users\DELL\Desktop\SceneBox\Superman _ Official Teaser Trailer.mp4",
+        downloadLink: "C:\Users\DELL\Desktop\SceneBox\Superman _ Official Teaser Trailer.mp4"
+      }, 
+      thrillerMovie: {
+        title: "Stranger things 4",
+        videoSrc: "C:\Users\DELL\Desktop\SceneBox\Stranger Things 4 _ Volume 2 Trailer _ Netflix.mp4",
+        downloadLink: "C:\Users\DELL\Desktop\SceneBox\Stranger Things 4 _ Volume 2 Trailer _ Netflix.mp4"
+      },
+
+      thrillerMovie: {
+        title: "Avengers Doomsday (2026)",
+        videoSrc: "C:\Users\DELL\Desktop\SceneBox\Avengers_ Doomsday (2026) - First Trailer _ Marvel.mp4",
+        downloadLink: "C:\Users\DELL\Desktop\SceneBox\Avengers_ Doomsday (2026) - First Trailer _ Marvel.mp4"
+      },
+
+      comedyMovie: {
+        title: "Johnny english :Strikes again ",
+        videoSrc: "C:\Users\DELL\Desktop\SceneBox\Johnny English Strikes Again - Official Trailer (HD) - In Theaters October 26.mp4",
+        downloadLink: "C:\Users\DELL\Desktop\SceneBox\Johnny English Strikes Again - Official Trailer (HD) - In Theaters October 26.mp4"
+      },
+      // Add more movies here if needed
+    };
+
+    // Check if the video exists in the videos object
+    if (videoName && videos[videoName]) {
+      const video = videos[videoName];
+
+      // Set video source
+      document.getElementById('videoPlayer').src = video.videoSrc;
+
+      // Set video title
+      document.getElementById('videoTitle').textContent = video.title;
+
+      // Set download link
+      document.getElementById('downloadButton').href = video.downloadLink;
+    } else {
+      // If the video is not found, display an error message
+      document.getElementById('videoTitle').textContent = "Video not found!";
+      document.getElementById('videoPlayer').style.display = 'none';
+      document.getElementById('downloadButton').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
